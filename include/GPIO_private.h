@@ -32,8 +32,6 @@
 #define		GPIOA_ODR				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x14))
 #define		GPIOA_BSRR				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x18))
 #define		GPIOA_LCKR				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x1C))
-#define		GPIOA_AFRL				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x20))
-#define		GPIOA_AFRH				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x24))
 
 /************************* GPIOB Registers *************************/
 #define		GPIOB_MODER				*((volatile u32*)(GPIOB_BASE_ADDRESS + 0x00))
@@ -44,8 +42,6 @@
 #define		GPIOB_ODR				*((volatile u32*)(GPIOB_BASE_ADDRESS + 0x14))
 #define		GPIOB_BSRR				*((volatile u32*)(GPIOB_BASE_ADDRESS + 0x18))
 #define		GPIOB_LCKR				*((volatile u32*)(GPIOB_BASE_ADDRESS + 0x1C))
-#define		GPIOB_AFRL				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x20))
-#define		GPIOB_AFRH				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x24))
 
 /************************* GPIOC Registers *************************/
 #define		GPIOC_MODER				*((volatile u32*)(GPIOC_BASE_ADDRESS + 0x00))
@@ -56,8 +52,7 @@
 #define		GPIOC_ODR				*((volatile u32*)(GPIOC_BASE_ADDRESS + 0x14))
 #define		GPIOC_BSRR				*((volatile u32*)(GPIOC_BASE_ADDRESS + 0x18))
 #define		GPIOC_LCKR				*((volatile u32*)(GPIOC_BASE_ADDRESS + 0x1C))
-#define		GPIOC_AFRL				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x20))
-#define		GPIOC_AFRH				*((volatile u32*)(GPIOA_BASE_ADDRESS + 0x24))
+
 
 // INPUT PORT STATES
 #define  No_PULL_UP_PULL_DOWN_STATE    0
@@ -68,10 +63,5 @@
 #define  PIN_MODE_MASK   0b11
 #define  PIN_OUTPUT_SPEED_MASK  0b11
 #define  INPUT_PIN_STATE_MASK   0b11
-
-#define     AF_MASK					0b1111
-#define     AF_BITS_OFFSET			4
-#define     AF_HIGH_BITS_OFFSET		8
-
 
 #endif

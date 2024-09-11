@@ -24,9 +24,8 @@ void MSTK_voidResetTimer(void);
 void MSTK_voidSTKEnable(void);
 void MSTK_voidSTKDisable(void);
 void MSTK_voidSetPreloadValue(u32 Copy_u32PreloadValue);
-void MSTK_voidSetSingleInterval(u32 Copy_u32Ticks, void (*CallBackFunction) (void));
+void MSTK_voidSetSingleInterval(void (*CallBackFunction) (void));
 void MSTK_voidSetPeriodicInterval(void (*CallBackFunction) (void));
 void SysTick_Handler(void);
-void MSTK_voidSetSingleInterval2(void (*CallBackFunction) (void));
 
 #endif

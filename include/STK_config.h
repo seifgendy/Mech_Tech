@@ -29,6 +29,6 @@
 // Control STK Interrupt.
 // There Are Two Options: [STK_ENABLE, STK_DISABLE].
 
-  #define STK_INTERRUPT  STK_ENABLE
+  #define STK_INTERRUPT  STK_DISABLE
 
 #endif
