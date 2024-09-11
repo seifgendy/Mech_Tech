@@ -1,0 +1,105 @@
+/*
+ * EXITI_program.c
+ *
+ * Created: 9/2/2023 10:54:35 PM
+ *  Author: ahmed
+ */ 
+
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
+#include "EXITI_interface.h"
+#include "EXITI_private.h"
+
+void EXTI_enable(EXITI_source interuptSource, EXITI_trigger interuptTriggerEdge)
+{
+	switch(interuptSource)
+	{
+		case EXITI_INT0:
+		switch(interuptTriggerEdge)
+		{
+			case EXITI_RISING_EDGE:
+			SET_BIT(MCUCR,ISC00);
+			SET_BIT(MCUCR,ISC01);
+			break;
+			
+			case EXITI_FALLING_EDGE:
+			CLR_BIT(MCUCR,ISC00);
+			SET_BIT(MCUCR,ISC01);
+			break;
+			
+			case EXITI_LOW_LEVEL:
+			CLR_BIT(MCUCR,ISC00);
+			CLR_BIT(MCUCR,ISC01);
+			break;
+			
+			case EXITI_ANY_LOGICAL_CHANGE:
+			SET_BIT(MCUCR,ISC00);
+			CLR_BIT(MCUCR,ISC01);
+			break;
+		}
+		SET_BIT(GICR,INT0); //enable intrupt 0
+		break;
+		
+		case EXITI_INT1:
+		switch(interuptTriggerEdge)
+		{
+			case EXITI_RISING_EDGE:
+			SET_BIT(MCUCR,ISC10);
+			SET_BIT(MCUCR,ISC11);
+			break;
+			
+			case EXITI_FALLING_EDGE:
+			CLR_BIT(MCUCR,ISC10);
+			SET_BIT(MCUCR,ISC11);
+			break;
+			
+			case EXITI_LOW_LEVEL:
+			CLR_BIT(MCUCR,ISC10);
+			CLR_BIT(MCUCR,ISC11);
+			break;
+			
+			case EXITI_ANY_LOGICAL_CHANGE:
+			SET_BIT(MCUCR,ISC10);
+			CLR_BIT(MCUCR,ISC11);
+			break;
+		}
+		SET_BIT(GICR,INT1); //enable intrupt 1
+		break;
+		
+		case EXITI_INT2:
+		switch(interuptTriggerEdge)
+		{
+			case EXITI_RISING_EDGE:
+			SET_BIT(MCUCSR,ISC2);
+			break;
+			
+			case EXITI_FALLING_EDGE:
+			CLR_BIT(MCUCSR,ISC2);
+			break;
+			
+		}
+		SET_BIT(GICR,INT2); //enable intrupt 2
+		break;
+	}
+	
+	
+	
+}
+
+void EXTI_disable(EXITI_source interuptSource)
+{
+	switch(interuptSource)
+	{
+		case  EXITI_INT0:
+		CLR_BIT(GICR,INT0);
+		break;
+		
+		case  EXITI_INT1:
+		CLR_BIT(GICR,INT1);
+		break;
+		
+		case  EXITI_INT2:
+		CLR_BIT(GICR,INT2);
+		break;
+	}
+}

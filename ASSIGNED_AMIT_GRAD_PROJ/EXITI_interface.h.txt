@@ -1,0 +1,34 @@
+/*
+ * EXITI_interface.h
+ *
+ * Created: 9/2/2023 10:53:54 PM
+ *  Author: ahmed
+ */ 
+
+
+#ifndef EXITI_INTERFACE_H_
+#define EXITI_INTERFACE_H_
+
+typedef enum
+{
+	EXITI_INT0=0,
+	EXITI_INT1,
+	EXITI_INT2
+}EXITI_source;
+
+typedef enum
+{
+	EXITI_RISING_EDGE,
+	EXITI_FALLING_EDGE,
+	EXITI_LOW_LEVEL,
+	EXITI_ANY_LOGICAL_CHANGE
+}EXITI_trigger;
+
+
+
+
+void EXTI_enable(EXITI_source interuptSource, EXITI_trigger interuptTriggerEdge);
+void EXTI_disable(EXITI_source interuptSource);
+
+
+#endif /* EXITI_INTERFACE_H_ */
